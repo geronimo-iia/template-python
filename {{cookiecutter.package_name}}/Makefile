@@ -1,0 +1,208 @@
+# Project settings
+PROJECT := {{cookiecutter.project_name}}
+PACKAGE := {{cookiecutter.package_name}}
+REPOSITORY := {{cookiecutter.github_username}}/{{cookiecutter.github_repo}}
+
+# Project paths
+PACKAGES := $(PACKAGE) tests
+CONFIG := $(wildcard *.py)
+MODULES := $(wildcard $(PACKAGE)/*.py)
+
+# Virtual environment paths
+VIRTUAL_ENV ?= .venv
+RUN := poetry run
+
+# MAIN TASKS ##################################################################
+
+SNIFFER := $(RUN) sniffer
+
+.PHONY: all
+all: install
+
+.PHONY: ci
+ci: check test ## Run all tasks that determine CI status
+
+.PHONY: watch
+watch: install .clean-test ## Continuously run all CI tasks when files chanage
+	$(SNIFFER)
+
+# SYSTEM DEPENDENCIES #########################################################
+
+.PHONY: doctor
+doctor:  ## Confirm system dependencies are available
+	bin/verchew
+
+# PROJECT DEPENDENCIES ########################################################
+
+DEPENDENCIES := $(VIRTUAL_ENV)/.poetry-$(shell bin/checksum pyproject.toml poetry.lock)
+
+.PHONY: install
+install: .venv $(DEPENDENCIES) .cache 
+
+$(DEPENDENCIES): poetry.lock
+	@ poetry config settings.virtualenvs.in-project false
+	# add extra @ poetry install -E curio
+	@ touch $@
+
+poetry.lock: pyproject.toml
+	poetry lock
+	@ touch $@
+
+.cache:
+	@ mkdir -p .cache
+
+.venv:
+	@ mkdir -p $(VIRTUAL_ENV)
+
+# CHECKS ######################################################################
+
+ISORT := $(RUN) isort
+PYLINT := $(RUN) pylint
+FLAKE := $(RUN) flake8
+BLACK := $(RUN) black
+MYPI := $(RUN) mypy
+PYCODESTYLE := $(RUN) pycodestyle
+PYDOCSTYLE := $(RUN) pydocstyle
+
+
+.PHONY: check
+check: isort black flake mypy pydocstyle ## Run linters and static analysis
+
+.PHONY: isort
+isort: install
+	$(ISORT) $(PACKAGES) --recursive --apply
+
+.PHONY: black
+black: install
+	$(BLACK) $(PACKAGES) 
+
+.PHONY: pylint
+pylint: install
+	$(PYLINT) $(PACKAGE)
+
+.PHONY: mypy
+mypy: install
+	$(MYPI) $(PACKAGE)  --config-file=.mypy.ini
+
+.PHONY: pydocstyle
+pydocstyle: install
+	$(PYDOCSTYLE) $(PACKAGES) $(CONFIG)
+
+.PHONY: flake
+flake: install ## Run flake8 linters
+	$(FLAKE) $(PACKAGES)
+
+
+# TESTS #######################################################################
+
+RANDOM_SEED ?= $(shell date +%s)
+FAILURES := .cache/v/cache/lastfailed
+
+PYTEST_OPTIONS := --random --random-seed=$(RANDOM_SEED)
+ifdef DISABLE_COVERAGE
+PYTEST_OPTIONS += --no-cov --disable-warnings
+endif
+PYTEST_RERUN_OPTIONS := --last-failed --exitfirst
+
+.PHONY: test
+test: install ## Run unit tests
+	@ if test -e $(FAILURES); then $(RUN) pytest tests $(PYTEST_RERUN_OPTIONS); fi
+	@ rm -rf $(FAILURES)
+	$(RUN) pytest tests $(PYTEST_OPTIONS)
+	$(RUN) coveragespace $(REPOSITORY) overall
+
+.PHONY: read-coverage
+read-coverage:
+	bin/open htmlcov/index.html
+
+# DOCUMENTATION ###############################################################
+
+DOCS_PATH = "mkdocs/docs"
+
+mkdocs-uml: # Generate UML Diagram
+	@mkdir -p $(DOCS_PATH)/uml
+	@$(RUN) pyreverse $(PACKAGE) -p $(PACKAGE) -a 1 -f ALL -o png --ignore tests
+	- mv -f classes_$(PACKAGE).png $(DOCS_PATH)/uml/classes.png
+	- mv -f packages_$(PACKAGE).png $(DOCS_PATH)/uml/packages.png
+
+mkdocs-api: # Generate API documentation
+	@mkdir -p $(DOCS_PATH)/api
+	@cd $(DOCS_PATH)/api && \
+		PYTHONPATH=$(shell pwd) $(RUN) pydocmd simple $(PACKAGE)+ > index.md
+# Add here all other package generation
+# PYTHONPATH=$(shell pwd) is a workaround to https://github.com/NiklasRosenstein/pydoc-markdown/issues/30
+
+
+
+mkdocs-md: # Copy standard document
+	@cp -f README.md $(DOCS_PATH)/index.md
+	@cp -f LICENSE.md $(DOCS_PATH)/license.md
+	@cp -f CHANGELOG.md $(DOCS_PATH)/changelog.md
+	@cp -f CODE_OF_CONDUCT.md $(DOCS_PATH)/code_of_conduct.md
+
+mkdocs-site: mkdocs-uml mkdocs-api mkdocs-md # Build Documentation Site
+	@cd mkdocs && $(RUN) mkdocs build
+
+mkdocs-github-page: mkdocs-site # Move generated docs under /docs
+	@rm -rf docs/
+	@mv mkdocs/site docs/
+
+.clean-docs: # remove all generated files
+	@rm -rf mkdocs/site
+	@rm -rf $(DOCS_PATH)/uml
+	@rm -rf $(DOCS_PATH)/api
+	@rm -rf $(DOCS_PATH)/index.md
+	@rm -rf $(DOCS_PATH)/license.md
+	@rm -rf $(DOCS_PATH)/changelog.md
+	@rm -rf $(DOCS_PATH)/code_of_conduct.md
+
+.PHONY: docs
+docs: mkdocs-github-page .clean-docs ## Generate documentation and UML
+
+# BUILD #######################################################################
+
+DIST_FILES := dist/*.tar.gz dist/*.whl
+
+.PHONY: dist
+dist: install check test $(DIST_FILES)
+$(DIST_FILES): $(MODULES) pyproject.toml
+	rm -f $(DIST_FILES)
+	poetry build
+
+# RELEASE #####################################################################
+
+.PHONY: upload
+upload: dist ## Upload the current version to PyPI
+	git diff --name-only --exit-code
+	poetry publish
+	bin/open https://pypi.org/project/$(PROJECT)
+
+# CLEANUP #####################################################################
+
+.PHONY: clean
+clean: .clean-build .clean-test .clean-install .clean-docs ## Delete all generated and temporary files
+
+.PHONY: clean-all
+clean-all: clean
+	rm -rf $(VIRTUAL_ENV)
+
+.PHONY: .clean-install
+.clean-install:
+	find $(PACKAGES) -name '__pycache__' -delete
+	rm -rf *.egg-info
+
+.PHONY: .clean-test
+.clean-test:
+	rm -rf .cache .pytest .coverage htmlcov
+
+.PHONY: .clean-build
+.clean-build:
+	rm -rf *.spec dist build
+
+# HELP ########################################################################
+
+.PHONY: help
+help: all
+	@ grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+.DEFAULT_GOAL := help

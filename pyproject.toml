@@ -1,9 +1,9 @@
 [tool.poetry]
 
 name = "template-python"
-version = "0.0"
-description = "A template for new Python libraries."
-authors = ["Jace Browning <jacebrowning@gmail.com>"]
+version = "0.0.0"
+description = "A template for Python libraries."
+authors = ["Jerome Guibert <jguibert@gmail.com>"]
 
 
 [tool.poetry.dependencies]

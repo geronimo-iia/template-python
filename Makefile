@@ -1,5 +1,5 @@
-SOURCE_FILES = Makefile cookiecutter.json {{cookiecutter.project_name}}/* {{cookiecutter.project_name}}/*/*
-GENERATED_PROJECT := TemplateDemo
+SOURCE_FILES = Makefile cookiecutter.json {{cookiecutter.package_name}}/* {{cookiecutter.package_name}}/*/*
+GENERATED_PROJECT := my_new_project
 
 ENV := .venv
 
@@ -13,6 +13,7 @@ ci: build
 	make doctor -C $(GENERATED_PROJECT)
 	make install -C $(GENERATED_PROJECT)
 	make ci -C $(GENERATED_PROJECT)
+	make docs -C $(GENERATED_PROJECT)
 
 .PHONY: watch
 watch: install clean
@@ -37,6 +38,7 @@ build: install $(GENERATED_PROJECT)
 $(GENERATED_PROJECT): $(SOURCE_FILES)
 	cat cookiecutter.json
 	poetry run cookiecutter . --no-input --overwrite-if-exists
+	mkdir -p $(GENERATED_PROJECT)
 	cd $(GENERATED_PROJECT) && poetry lock
 	@ touch $(GENERATED_PROJECT)
 
