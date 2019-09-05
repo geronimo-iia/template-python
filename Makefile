@@ -10,8 +10,8 @@ all: install
 
 .PHONY: ci
 ci: build
-	make doctor -C $(GENERATED_PROJECT)
 	make install -C $(GENERATED_PROJECT)
+	make doctor -C $(GENERATED_PROJECT)
 	make ci -C $(GENERATED_PROJECT)
 	make docs -C $(GENERATED_PROJECT)
 
