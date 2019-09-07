@@ -35,7 +35,7 @@ debug-info:  ## Show poetry debug info
 
 # PROJECT DEPENDENCIES ########################################################
 
-install: .install .cache ## ## Install project dependencies
+install: .install .cache ## Install project dependencies
 
 .install: poetry.lock 
 	poetry install
