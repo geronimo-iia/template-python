@@ -67,7 +67,7 @@ mypy: install
 
 .PHONY: pydocstyle
 pydocstyle: install
-	$(RUN) pydocstyle) $(PACKAGES) $(CONFIG)
+	$(RUN) pydocstyle $(PACKAGES) $(CONFIG)
 
 .PHONY: flake
 flake: install
