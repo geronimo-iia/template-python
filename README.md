@@ -32,11 +32,3 @@ $ cookiecutter gh:geronimo-iia/template-python -f
 ```
 
 Cookiecutter will ask you for some basic info (your name, project name, python package name, etc.) and generate a base Python project for you.
-
-If you still need to use legacy Python or `nose` as the test runner, older versions of this template are available on branches:
-
-```
-$ cookiecutter gh:geronimo-iia/template-python -f --checkout=python2
-
-$ cookiecutter gh:geronimo-iia/template-python -f --checkout=nose
-```
