@@ -5,7 +5,7 @@ GENERATED_PROJECT := my_new_project
 # MAIN #########################################################################
 
 .PHONY: all
-all: install
+all: ci
 
 .PHONY: ci
 ci: build ## CI Build: Test Sample
@@ -20,17 +20,18 @@ watch: install clean
 
 # DEPENDENCIES #################################################################
 
-.PHONY: install
-install: pyproject.toml poetry.lock ## Install project
+install: .install ## Install project
+
+.install: poetry.lock 
 ifdef CI
 	poetry install --no-dev
 else
 	poetry install
 endif
+	@ touch $@
 
 poetry.lock: pyproject.toml
 	poetry lock
-	@ touch $@
 
 # BUILD ########################################################################
 
@@ -52,7 +53,7 @@ clean: ## Delete all generated and temporary files
 # HELP ########################################################################
 
 .PHONY: help
-help: all
+help:
 	@ grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 .DEFAULT_GOAL := help

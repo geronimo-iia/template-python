@@ -5,6 +5,11 @@
 # Temporary Python files
 *.pyc
 __pycache__/
+.pytest_cache
+
+.install
 
 # Generated project
 my_new_project
+
+
