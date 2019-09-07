@@ -8,5 +8,6 @@
     "github_repo": "my_new_project",
     "project_short_description": "Sample project generated from geronimo-iia/template-python.",
     "python_major_version": 3,
-    "python_minor_version": 7
+    "python_minor_version": 7,
+    "max_code_line_length": 88
   }
