@@ -213,7 +213,7 @@ description = "This package provides cross-platform cross-python shutil.which fu
 name = "whichcraft"
 optional = false
 python-versions = "*"
-version = "0.6.0"
+version = "0.6.1"
 
 [metadata]
 content-hash = "3788a9435cb690819f68c3af6c61a6634d70617fd31358b557e6779b71b48859"
@@ -241,4 +241,4 @@ requests = ["6a1b267aa90cac58ac3a765d067950e7dbbf75b1da07e895d1f594193a40a38b", 
 six = ["70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9", "832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"]
 sniffer = ["b37665053fb83d7790bf9e51d616c11970863d14b5ea5a51155a4e95759d1529", "f120843fe152d0e380402fc11313b151e2044c47fdd36895de2efedc8624dbb8"]
 urllib3 = ["06330f386d6e4b195fbfc736b297f58c5a892e4440e54d294d7004e3a9bbea1b", "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"]
-whichcraft = ["0acf1d3aebb5ab16243edbf818024ce21938f06150563041665a23b33eb11dd8", "d54caa14cc3f7b1d2276f8753fd05f1dc5a554df6f83a36c5c2a551e81de2498"]
+whichcraft = ["acdbb91b63d6a15efbd6430d1d7b2d36e44a71697e93e19b7ded477afd9fce87", "deda9266fbb22b8c64fd3ee45c050d61139cd87419765f588e37c8d23e236dd9"]

@@ -1,7 +1,6 @@
 SOURCE_FILES = Makefile cookiecutter.json {{cookiecutter.package_name}}/* {{cookiecutter.package_name}}/*/*
 GENERATED_PROJECT := my_new_project
 
-ENV := .venv
 
 # MAIN #########################################################################
 
@@ -9,7 +8,7 @@ ENV := .venv
 all: install
 
 .PHONY: ci
-ci: build
+ci: build ## CI Build: Test Sample
 	make install -C $(GENERATED_PROJECT)
 	make doctor -C $(GENERATED_PROJECT)
 	make ci -C $(GENERATED_PROJECT)
@@ -22,19 +21,21 @@ watch: install clean
 # DEPENDENCIES #################################################################
 
 .PHONY: install
-install: $(ENV)
-$(ENV): pyproject.toml poetry.lock
+install: pyproject.toml poetry.lock ## Install project
 ifdef CI
 	poetry install --no-dev
 else
 	poetry install
 endif
+
+poetry.lock: pyproject.toml
+	poetry lock
 	@ touch $@
 
 # BUILD ########################################################################
 
 .PHONY: build
-build: install $(GENERATED_PROJECT)
+build: install $(GENERATED_PROJECT) ## Generate Sample
 $(GENERATED_PROJECT): $(SOURCE_FILES)
 	cat cookiecutter.json
 	poetry run cookiecutter . --no-input --overwrite-if-exists
@@ -45,9 +46,14 @@ $(GENERATED_PROJECT): $(SOURCE_FILES)
 # CLEANUP ######################################################################
 
 .PHONY: clean
-clean:
+clean: ## Delete all generated and temporary files
 	rm -rf $(GENERATED_PROJECT)
 
-.PHONY: clean-all
-clean-all: clean
-	rm -rf $(ENV)
+# HELP ########################################################################
+
+.PHONY: help
+help: all
+	@ grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+.DEFAULT_GOAL := help
+
