@@ -31,6 +31,7 @@ This is a cookiecutter template for a typical Python library following modern pa
     * macOS: `$ brew install graphviz`
     * Linux: [https://graphviz.org/download](https://graphviz.org/download/)
     * Windows: [https://graphviz.org/download](https://graphviz.org/download/)
+  Needed to generate UML documentation
 
 To confirm these system dependencies are configured correctly:
 

@@ -10,5 +10,6 @@
   - lighter code sample (less to remove for final user)
   - add max_code_line_length parameter
   - remove python2 support
-  
+- extends ci with generation of docs
+
 
