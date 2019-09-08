@@ -77,7 +77,8 @@ pymdown-extensions = "6.0"
 pygments = "*"
 mkdocs-material= "*"
 fontawesome_markdown = "*"
-pyreverse = "*"
+# needed for pyreverse (https://www.logilab.org/blogentry/6883)
+pylint = "*"
 
 # Tooling
 pyinstaller = "*"
