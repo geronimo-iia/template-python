@@ -1,3 +1,8 @@
+# 1.0.1
+
+- change root folder for project name
+- adding 'requirements.txt' target (waiting poetry 1.0.0)
+
 # 1.0.0 (2019-09-04)
 
 - rewrote template from async-btree experience:

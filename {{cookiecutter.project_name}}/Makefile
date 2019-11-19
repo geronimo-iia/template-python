@@ -47,6 +47,11 @@ poetry.lock: pyproject.toml
 .cache:
 	@ mkdir -p .cache
 
+requirements.txt: poetry.lock
+	# Wait 1.0.0
+	#poetry export --without-hashes --format=requirements.txt
+	@ touch $@
+
 
 # CHECKS ######################################################################
 
