@@ -1,4 +1,4 @@
-# 1.0.1
+# 1.0.1 (2019-11-19)
 
 - change root folder for project name
 - adding 'requirements.txt' target (waiting poetry 1.0.0)
