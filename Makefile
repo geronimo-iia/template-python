@@ -1,4 +1,4 @@
-SOURCE_FILES = Makefile cookiecutter.json {{cookiecutter.package_name}}/* {{cookiecutter.package_name}}/*/*
+SOURCE_FILES = Makefile cookiecutter.json {{cookiecutter.project_name}}/* {{cookiecutter.project_name}}/*/*
 GENERATED_PROJECT := my_new_project
 
 
