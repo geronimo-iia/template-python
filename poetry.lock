@@ -26,7 +26,7 @@ description = "Python package for providing Mozilla's CA Bundle."
 name = "certifi"
 optional = false
 python-versions = "*"
-version = "2019.6.16"
+version = "2019.9.11"
 
 [[package]]
 category = "main"
@@ -88,11 +88,11 @@ version = "2.6"
 
 [[package]]
 category = "main"
-description = "A small but fast and easy to use stand-alone template engine written in pure python."
+description = "A very fast and expressive template engine."
 name = "jinja2"
 optional = false
 python-versions = "*"
-version = "2.10.1"
+version = "2.10.3"
 
 [package.dependencies]
 MarkupSafe = ">=0.23"
@@ -222,14 +222,14 @@ python-versions = "^3"
 [metadata.hashes]
 arrow = ["a558d3b7b6ce7ffc74206a86c147052de23d3d4ef0e17c210dd478c53575c4cd"]
 binaryornot = ["359501dfc9d40632edc9fac890e19542db1a287bbcfa58175b66658392018061", "b8b71173c917bddcd2c16070412e369c3ed7f0528926f70cac18a6c97fd563e4"]
-certifi = ["046832c04d4e752f37383b628bc601a7ea7211496b4638f6514d0e5b9acc4939", "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"]
+certifi = ["e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50", "fd7c7c74727ddcf00e9acd26bba8da604ffec95bf1c2144e67aff7a8b50e6cef"]
 chardet = ["84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae", "fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"]
 click = ["29f99fc6125fbc931b758dc053b3114e55c77a6e4c6c3a2674a2dc986016381d", "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"]
 colorama = ["463f8483208e921368c9f306094eb6f725c6ca42b0f97e313cb5d5512459feda", "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"]
 cookiecutter = ["1316a52e1c1f08db0c9efbf7d876dbc01463a74b155a0d83e722be88beda9a3e", "ed8f54a8fc79b6864020d773ce11539b5f08e4617f353de1f22d23226f6a0d36"]
 future = ["e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"]
 idna = ["2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f", "8c7309c718f94b3a625cb648ace320157ad16ff131ae0af362c9f21b80ef6ec4"]
-jinja2 = ["065c4f02ebe7f7cf559e49ee5a95fb800a9e4528727aec6f24402a5374c65013", "14dd6caf1527abb21f08f86c784eac40853ba93edb79552aa1e4b8aef1b61c7b"]
+jinja2 = ["74320bb91f31270f9551d46522e33af46a80c3d619f4a4bf42b3164d30b5911f", "9fe95f19286cfefaa917656583d020be14e7859c6b0252588391e47db34527de"]
 jinja2-time = ["d14eaa4d315e7688daa4969f616f226614350c48730bfa1692d2caebd8c90d40", "d3eab6605e3ec8b7a0863df09cc1d23714908fa61aa6986a845c20ba488b4efa"]
 macfsevents = ["1324b66b356051de662ba87d84f73ada062acd42b047ed1246e60a449f833e10"]
 markupsafe = ["a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"]

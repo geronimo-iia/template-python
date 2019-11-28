@@ -2,6 +2,8 @@
 
 - change upload target for publish
 - fix travis python version definition
+- change root folder for project slug
+- change default github_repo with project slug
 
 # 1.0.1 (2019-11-19)
 
