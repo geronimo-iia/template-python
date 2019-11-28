@@ -32,3 +32,12 @@ $ cookiecutter gh:geronimo-iia/template-python -f
 ```
 
 Cookiecutter will ask you for some basic info (your name, project name, python package name, etc.) and generate a base Python project for you.
+
+Target list:
+
+- install: install dependencies
+- test: launch test
+- check: check with flake & co
+- docs: generate doc site
+- dist: build distribution
+- publish: publish version on pypy

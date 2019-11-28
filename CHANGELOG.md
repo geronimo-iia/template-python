@@ -1,3 +1,8 @@
+# 1.0.2 (2019-11-28)
+
+- change upload target for publish
+- fix travis python version definition
+
 # 1.0.1 (2019-11-19)
 
 - change root folder for project name
