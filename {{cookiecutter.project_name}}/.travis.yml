@@ -2,7 +2,7 @@ dist: xenial
 
 language: python
 python:
-  - 3.7
+  - {{cookiecutter.python_major_version}}.{{cookiecutter.python_minor_version}}
 
 cache:
   pip: true
