@@ -1,3 +1,8 @@
+# 1.0.3
+
+- add paramater use_coveragespace to use or not coveragespace
+- fix some python version tag generation
+
 # 1.0.2 (2019-11-28)
 
 - change upload target for publish

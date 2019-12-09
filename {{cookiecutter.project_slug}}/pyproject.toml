@@ -24,8 +24,8 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: {{cookiecutter.python_major_version}}",
+    "Programming Language :: Python :: {{cookiecutter.python_major_version}}.{{cookiecutter.python_minor_version}}",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Typing :: Typed"
 ]
@@ -69,7 +69,7 @@ pytest-random = "*"
 freezegun = "*"
 
 # Reports
-coveragespace = "*"
+{% if cookiecutter.use_coveragespace %}coveragespace = "*"{% endif %}
 
 # Documentation
 pydoc-markdown = "2.0.5"

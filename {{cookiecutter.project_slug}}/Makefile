@@ -95,7 +95,9 @@ test: install ## Run unit tests
 	@ if test -e $(FAILURES); then $(RUN) pytest tests $(PYTEST_RERUN_OPTIONS); fi
 	@ rm -rf $(FAILURES)
 	$(RUN) pytest tests $(PYTEST_OPTIONS)
+	{% if cookiecutter.use_coveragespace %}
 	$(RUN) coveragespace $(REPOSITORY) overall
+	{% endif %}
 
 .PHONY: read-coverage
 read-coverage:
