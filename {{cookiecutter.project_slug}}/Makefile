@@ -35,6 +35,7 @@ install: .install .cache ## Install project dependencies
 
 .install: poetry.lock 
 	poetry install
+	poetry check
 	@ touch $@
 
 poetry.lock: pyproject.toml
@@ -44,9 +45,13 @@ poetry.lock: pyproject.toml
 	@ mkdir -p .cache
 
 requirements.txt: poetry.lock
-	poetry export --without-hashes --format=requirements.txt
-	@ touch $@
+	poetry export --without-hashes -f requirements.txt > requirements.txt
 
+show: ## Show project dependencies
+	poetry show
+
+update: ## Get the latest versions of the dependencies and update the poetry.lock
+	poetry update
 
 # CHECKS ######################################################################
 
