@@ -19,10 +19,6 @@ all: install
 .PHONY: ci
 ci: check test ## Run all tasks that determine CI status
 
-.PHONY: watch
-watch: install .clean-test ## Continuously run all CI tasks when files chanage
-	$(RUN) sniffer
-
 # SYSTEM DEPENDENCIES #########################################################
 
 .PHONY: doctor
@@ -48,8 +44,7 @@ poetry.lock: pyproject.toml
 	@ mkdir -p .cache
 
 requirements.txt: poetry.lock
-	# Wait 1.0.0
-	#poetry export --without-hashes --format=requirements.txt
+	poetry export --without-hashes --format=requirements.txt
 	@ touch $@
 
 

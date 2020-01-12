@@ -41,7 +41,6 @@ import configparser  # Python 3
 
 __version__ = '1.6'
 
-PY2 = sys.version_info[0] == 2
 
 CONFIG_FILENAMES = [
     'verchew.ini',
@@ -274,7 +273,7 @@ def call(args):
 
 
 def show(text, start='', end='\n', head=False):
-    """Python 2 and 3 compatible version of print."""
+    """Print utilities."""
     if QUIET:
         return
 
@@ -286,8 +285,6 @@ def show(text, start='', end='\n', head=False):
         log.info(text)
     else:
         formatted = (start + text + end)
-        if PY2:
-            formatted = formatted.encode('utf-8')
         sys.stdout.write(formatted)
         sys.stdout.flush()
 

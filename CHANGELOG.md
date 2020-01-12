@@ -1,3 +1,10 @@
+# 1.1.0
+
+- rely on poetry v1.0.0 :)
+- remove unused tooling dependencies
+- remove test sniffer
+- remove python 2 support
+
 # 1.0.3
 
 - add paramater use_coveragespace to use or not coveragespace
