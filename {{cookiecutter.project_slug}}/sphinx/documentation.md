@@ -1,4 +1,4 @@
-# Documentation 
+# Documentation
 
 Note on documentation generation.
 
@@ -31,7 +31,7 @@ Main target: 'docs'
 
 Cleaning target: '.clean-docs'
 - Remove all temp files
-    
+
 
 ## Extract from Makefile
 
@@ -75,7 +75,7 @@ mkdocs-site: mkdocs/mkdocs.yml mkdocs-uml mkdocs-api mkdocs-md ## Build Document
 	@ cd mkdocs; \
 	  $(RUN) mkdocs build
 	@ rm -rf docs/
-	@ mv mkdocs/site docs/	
+	@ mv mkdocs/site docs/
 
 .clean-docs: ## remove all generated files
 	@ rm -rf mkdocs/site

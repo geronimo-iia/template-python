@@ -1,3 +1,11 @@
+
+
+* Python 3.7+
+* Pyenv
+* [poetry](https://python-poetry.org/)
+* Make with find, sed
+
+
 # Contributing
 
 This project is based on [Geronimo-iaa's Python Template](https://github.com/geronimo-iia/template-python).
@@ -13,7 +21,7 @@ This is a cookiecutter template for a typical Python library following modern pa
     * Windows: [https://mingw.org/download/installer](https://mingw.org/download/installer)
 
 * Pyenv: [https://github.com/pyenv/pyenv#installation](https://github.com/pyenv/pyenv#installation)
-  
+
   Pyenv will manage all our python version.
 
 * Python: `$ pyenv install 3.7.3`
@@ -24,7 +32,7 @@ This is a cookiecutter template for a typical Python library following modern pa
   ```
 
 * Poetry: [https://poetry.eustace.io/docs/#installation](https://poetry.eustace.io/docs/#installation)
-  
+
   Poetry will manage our dependencies and create our virtual environment for us.
 
 * Graphviz:
@@ -50,7 +58,7 @@ $ make install
 Note:
 - this target create a dummy file ```.install```. The makefile rule depends on pyproject.toml and
 poetry.lock file
-- if for whatever reason, you have to force installation, just remove this ```.install``` file and 
+- if for whatever reason, you have to force installation, just remove this ```.install``` file and
 execute a ```make install```
 
 
@@ -139,4 +147,3 @@ Release to PyPI:
 ```text
 $ make publish
 ```
-

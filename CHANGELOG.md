@@ -1,9 +1,19 @@
-# 1.1.0
+# 2.0.0
 
-- rely on poetry v1.0.0 :)
+- rely on poetry v1.0.2
 - remove unused tooling dependencies
-- remove test sniffer
 - remove python 2 support
+- isort configuration rely on pyproject.toml
+- group all file configuration per project into setup.cfg until they support pyproject.toml
+- add precommit hook
+- add extra flake8 plugin
+- fix cookiecutter test and disable coveragespace per default
+- tag git reposioty on pipy publish
+- add more doctor testing
+- rewrite makefile in a more simple way
+- add requirements.txt export
+- use sphinx for documentation
+- remove graphviz for uml generated diagram
 
 # 1.0.3
 
@@ -35,5 +45,3 @@
   - add max_code_line_length parameter
   - remove python2 support
 - extends ci with generation of docs
-
-
