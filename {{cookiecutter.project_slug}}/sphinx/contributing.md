@@ -1,19 +1,22 @@
-
-
-* Python 3.7+
-* Pyenv
-* [poetry](https://python-poetry.org/)
-* Make with find, sed
-
-
 # Contributing
 
 This project is based on [Geronimo-iaa's Python Template](https://github.com/geronimo-iia/template-python).
-This is a cookiecutter template for a typical Python library following modern packaging conventions. It utilizes popular libraries alongside Make and Graphviz to fully automate all development and deployment tasks.
+This is a cookiecutter template for a typical Python library following modern packaging conventions. 
+It utilizes popular libraries to fully automate all development and deployment tasks.
+
 
 ## Setup
 
 ### Requirements
+
+You will need:
+
+* Python {{cookiecutter.python_major_version}}.{{cookiecutter.python_minor_version}}"+
+* [Pyenv](https://github.com/pyenv/pyenv#installation)
+* [poetry](https://python-poetry.org/)
+* Make with find, sed
+
+
 
 * Make:
     * macOS: `$ xcode-select --install`
@@ -24,7 +27,7 @@ This is a cookiecutter template for a typical Python library following modern pa
 
   Pyenv will manage all our python version.
 
-* Python: `$ pyenv install 3.7.3`
+* Python: `$ pyenv install {{cookiecutter.python_major_version}}.{{cookiecutter.python_minor_version}}`
 
   Note for [MacOS 10.14 user](https://github.com/pyenv/pyenv/issues/544):
   ```bash
@@ -34,12 +37,6 @@ This is a cookiecutter template for a typical Python library following modern pa
 * Poetry: [https://poetry.eustace.io/docs/#installation](https://poetry.eustace.io/docs/#installation)
 
   Poetry will manage our dependencies and create our virtual environment for us.
-
-* Graphviz:
-    * macOS: `$ brew install graphviz`
-    * Linux: [https://graphviz.org/download](https://graphviz.org/download/)
-    * Windows: [https://graphviz.org/download](https://graphviz.org/download/)
-  Needed to generate UML documentation
 
 To confirm these system dependencies are configured correctly:
 
@@ -84,15 +81,17 @@ Build the documentation:
 $ make docs
 ```
 
-### Automatic
+Build the package:
 
-Keep all of the above tasks running on change:
-
-```text
-$ make watch
+```bash
+$ make build
 ```
 
-> In order to have OS X notifications, `brew install terminal-notifier`.
+For help:
+
+```bash
+$ make help
+```
 
 ### Integration With Visual Studio Code
 
@@ -115,14 +114,6 @@ So here, few detail of my installation.
     ```
 
 - poetry configuration: all is let with default
-    ```text
-    settings.virtualenvs.create = true
-    settings.virtualenvs.in-project = false
-    settings.virtualenvs.path = "/Users/xxxx/Library/Caches/pypoetry/virtualenvs"
-    repositories = {}
-    ```
-    As now, i cannot have a working system with 'settings.virtualenvs.in-project' set to true
-    or 'settings.virtualenvs.path' setted with a custom path.
 
 - How Launch Visual Studio Code within virtual environment created by poetry ?
     After do a ```make install```, you have to do:
