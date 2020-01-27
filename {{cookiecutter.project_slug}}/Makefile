@@ -104,7 +104,7 @@ publish: build ## Publishes the package, previously built with the build command
 # DOC #########################################################################
 
 SPHINX_BUILD_DIR = .cache/sphinx
-
+.PHONY: docs
 docs:  ## Build and publish sit documentation.
 	@mkdir -p $(SPHINX_BUILD_DIR)
 	@poetry run sphinx-build -M html "sphinx" "$(SPHINX_BUILD_DIR)"
