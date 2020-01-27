@@ -89,7 +89,7 @@ and autodoc need yet a lot of configuration. So not totally 'auto'.
 Now, I give a try of the most used documentation framework Sphinx, and try to have the most simple configuration.
 You could retreive all sphinx source under 'sphinx' folder.
 
-Since 20 years, I continue to learn, wish to be able to continue for the next 20 years :)
+Since 20 years, I continue to learn... and I wish to be able to continue for the next 20 years :)
 
 Things in mind:
 
