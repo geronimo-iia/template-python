@@ -17,26 +17,36 @@ You will need:
 * Make with find, sed
 
 
+### Make Installation
 
-* Make:
-    * macOS: `$ xcode-select --install`
-    * Linux: [https://www.gnu.org/software/make](https://www.gnu.org/software/make)
-    * Windows: [https://mingw.org/download/installer](https://mingw.org/download/installer)
+A powerfull tool:
+* macOS: `$ xcode-select --install`
+* Linux: [https://www.gnu.org/software/make](https://www.gnu.org/software/make)
+* Windows: [https://mingw.org/download/installer](https://mingw.org/download/installer)
 
-* Pyenv: [https://github.com/pyenv/pyenv#installation](https://github.com/pyenv/pyenv#installation)
+### Pyenv Installation
 
-  Pyenv will manage all our python version.
+Pyenv will manage all our python version.
+Follow [https://github.com/pyenv/pyenv#installation](https://github.com/pyenv/pyenv#installation)
 
-* Python: `$ pyenv install {{cookiecutter.python_major_version}}.{{cookiecutter.python_minor_version}}`
 
-  Note for [MacOS 10.14 user](https://github.com/pyenv/pyenv/issues/544):
+### Python Installation
+
+ Do:
+
+ `$ pyenv install {{cookiecutter.python_major_version}}.{{cookiecutter.python_minor_version}}`
+
+Note for [MacOS 10.14 user](https://github.com/pyenv/pyenv/issues/544):
+
   ```bash
     SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk MACOSX_DEPLOYMENT_TARGET=10.14 pyenv install 3.7.3
   ```
 
-* Poetry: [https://poetry.eustace.io/docs/#installation](https://poetry.eustace.io/docs/#installation)
+### Poetry Installation: [https://poetry.eustace.io/docs/#installation](https://poetry.eustace.io/docs/#installation)
 
-  Poetry will manage our dependencies and create our virtual environment for us.
+Poetry will manage our dependencies and create our virtual environment for us.
+
+### Confirm Installation
 
 To confirm these system dependencies are configured correctly:
 
@@ -44,9 +54,12 @@ To confirm these system dependencies are configured correctly:
 $ make doctor
 ```
 
-### Installation
 
-Install project dependencies into a virtual environment:
+## Development Tasks
+
+### Manual
+
+#### Install project dependencies
 
 ```bash
 $ make install
@@ -59,33 +72,31 @@ poetry.lock file
 execute a ```make install```
 
 
-## Development Tasks
-
-### Manual
-
-Run the tests:
+#### Run the tests
 
 ```bash
 $ make test
 ```
 
-Run static analysis:
+#### Run static analysis
 
 ```bash
 $ make check
 ```
 
-Build the documentation:
+#### Build the documentation
 
 ```bash
 $ make docs
 ```
 
-Build the package:
+#### Build the package
 
 ```bash
 $ make build
 ```
+
+#### Ontain help
 
 For help:
 
