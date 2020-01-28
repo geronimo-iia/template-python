@@ -1,1 +1,14 @@
-{{ cookiecutter | jsonify }}
+default_context:
+  email: {{ cookiecutter.email }}
+  full_name: {{ cookiecutter.full_name }}
+  github_repo: {{ cookiecutter.github_repo }}
+  github_username: {{ cookiecutter.github_username }}
+  max_code_line_length: {{ cookiecutter.max_code_line_length }}
+  package_name: {{ cookiecutter.package_name }}
+  project_name: {{ cookiecutter.project_name }}
+  project_short_description: {{ cookiecutter.project_short_description }}
+  project_slug: {{ cookiecutter.project_slug }}
+  python_major_version: {{ cookiecutter.python_major_version }}
+  python_minor_version: {{ cookiecutter.python_minor_version }}
+  use_coveragespace: {{ cookiecutter.use_coveragespace }}
+  use_scrutinizer: {{ cookiecutter.use_scrutinizer }}
