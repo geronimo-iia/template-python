@@ -125,12 +125,12 @@ clean:  ## Delete all generated and temporary files
 
 .PHONY: update-from-template
 
-update-from-template:
+update-from-template:  ## Update project from template
 	@git diff --name-only --exit-code
-	cookiecutter gh:geronimo-iia/template-python --output-dir .. --config-file .cookiecutter.yaml --no-input --overwrite-if-exists
-	git status # shows lots of overridden files
-	git add . -p # walk through patchsets, selecting files for adding
-	git commit -m "Updated from template."
+	@cookiecutter gh:geronimo-iia/template-python --output-dir .. --config-file .cookiecutter.yaml --no-input --overwrite-if-exists
+	@git status # shows lots of overridden files
+	@git add . -p # walk through patchsets, selecting files for adding
+	@git commit -m "Updated from template."
 
 
 # HELP ########################################################################
