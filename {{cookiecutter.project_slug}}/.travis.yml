@@ -26,11 +26,9 @@ script:
   - make test
 
 after_success:
-  - pip install scrutinizer-ocular
-{%- if cookiecutter.use_coveragespace == "true" -%}
+  - pip install scrutinizer-ocular{% if cookiecutter.use_coveragespace|int %}
   - pip install coveralls
-  - coveralls
-{% endif %}
+  - coveralls{% endif %}
   - ocular
 
 notifications:

@@ -13,7 +13,6 @@
 import os
 import sys
 import toml
-from datetime import date
 
 sys.path.append(os.path.dirname(__file__))
 sys.path.append(os.path.join(os.path.dirname(__name__), "..", "{{cookiecutter.package_name}}"))
@@ -31,7 +30,7 @@ def get_version():
 
 
 project = '{{cookiecutter.package_name}}'
-copyright = f'{date.today().year}, {{cookiecutter.full_name}}'
+copyright = '{{cookiecutter.year}}, {{cookiecutter.full_name}}'
 author = '{{cookiecutter.full_name}} <{{cookiecutter.email}}>'
 
 # The full version, including alpha/beta/rc tags

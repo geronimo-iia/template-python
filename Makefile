@@ -26,7 +26,7 @@ poetry.lock: pyproject.toml
 # BUILD ########################################################################
 
 .PHONY: build
-build: install $(GENERATED_PROJECT) ## Generate Sample
+build: clean install $(GENERATED_PROJECT) ## Generate Sample
 $(GENERATED_PROJECT): $(SOURCE_FILES)
 	@cat cookiecutter.json
 	@poetry run cookiecutter . --no-input --overwrite-if-exists
@@ -38,7 +38,7 @@ $(GENERATED_PROJECT): $(SOURCE_FILES)
 
 .PHONY: clean
 clean: ## Delete all generated and temporary files
-	@rm -rf $(GENERATED_PROJECT)
+	rm -rf $(GENERATED_PROJECT)
 
 # HELP ########################################################################
 

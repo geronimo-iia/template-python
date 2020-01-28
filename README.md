@@ -30,6 +30,7 @@ About this project:
       - Building documentation with `sphinx`
       - Auto generation of API reference
       - Expose with Github Page project under 'docs' folder
+* Upgrade project template `update-from-template`
 
 
 ## Usage
@@ -45,13 +46,21 @@ Cookiecutter will ask you for some basic info (your name, project name, python p
 
 Target list:
 
-- install: install dependencies
-- test: launch test
-- check: check with flake & co
-- docs: generate doc site
-- build: build distribution
-- publish: publish version on pypy
-
+| Name | Comment |
+| ---- | ------- |
+|      |         |
+| ci                             | Run all tasks that determine CI status |
+| doctor                         | Confirm system dependencies are available |
+| debug-info                     | Show poetry debug info |
+| install                        | Install project dependencies |
+| check                          | Run linters and static analysis |
+| test                           | Run unit tests |
+| build                          | Builds the source and wheels archives |
+| publish                        | Publishes the package, previously built with the build command, to the remote repository |
+| docs                           | Build and publish sit documentation. |
+| clean                          | Delete all generated and temporary files |
+| update-from-template           | Update project from template |
+|      |         |
 
 ## Story
 

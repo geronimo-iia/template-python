@@ -1,6 +1,8 @@
+# License
+
 **The MIT License (MIT)**
 
-Copyright &copy; 2019, {{cookiecutter.full_name}}
+Copyright &copy; {{cookiecutter.year}}, {{cookiecutter.full_name}}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

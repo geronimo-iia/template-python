@@ -71,7 +71,7 @@ test: install ## Run unit tests
 	@if test -e $(FAILURES); then poetry run pytest tests --last-failed --exitfirst; fi
 	@rm -rf $(FAILURES)
 	poetry run pytest tests $(PYTEST_OPTIONS)
-	{%- if cookiecutter.use_coveragespace == "true" -%}
+	{%- if cookiecutter.use_coveragespace|int -%}
 	poetry run coveragespace $(REPOSITORY) overall
 	{% endif %}
 ifndef DISABLE_COVERAGE

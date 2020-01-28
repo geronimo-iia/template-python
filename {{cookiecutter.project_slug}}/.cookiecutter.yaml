@@ -12,3 +12,6 @@ default_context:
   python_minor_version: {{ cookiecutter.python_minor_version }}
   use_coveragespace: {{ cookiecutter.use_coveragespace }}
   use_scrutinizer: {{ cookiecutter.use_scrutinizer }}
+  year: {{cookiecutter.year}}
+_extensions:
+  - "jinja2_time.TimeExtension"

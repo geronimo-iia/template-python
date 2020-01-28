@@ -59,7 +59,7 @@ pytest-random = "*"
 pytest-mock = "^1.10"
 coverage = "^5.0.3" # Code coverage measurement for Python
 xdoctest = "^0.11.0" # A rewrite of the builtin doctest module
-{%- if cookiecutter.use_coveragespace == "true" -%}coveragespace = "^3.0.1" # A place to track your code coverage metrics.{% endif %}
+{%- if cookiecutter.use_coveragespace|int -%}coveragespace = "^3.0.1" # A place to track your code coverage metrics.{% endif %}
 
 # Documentation
 sphinx = "^2.3.1"

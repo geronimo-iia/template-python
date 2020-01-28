@@ -19,7 +19,9 @@
 - use sphinx for documentation
 - all markdown doc are on root folder
 
-- add .cookiecutter to save context of template generation
+- add .cookiecutter.yaml to save context of template generation
+- change fake boolean configuration for int 1/0 ...
+- add "year" configuration property
   
 # 1.0.3
 
