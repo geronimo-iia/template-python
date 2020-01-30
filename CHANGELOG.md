@@ -22,6 +22,10 @@
 - add .cookiecutter.yaml to save context of template generation
 - change fake boolean configuration for int 1/0 ...
 - add "year" configuration property
+
+- switch to travis-ci.com
+
+- change bin folder to tools
   
 # 1.0.3
 

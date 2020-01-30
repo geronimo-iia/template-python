@@ -31,7 +31,6 @@ $(GENERATED_PROJECT): $(SOURCE_FILES)
 	@cat cookiecutter.json
 	@poetry run cookiecutter . --no-input --overwrite-if-exists
 	@mkdir -p $(GENERATED_PROJECT)
-	#cd $(GENERATED_PROJECT) && poetry lock
 	@touch $(GENERATED_PROJECT)
 
 # CLEANUP ######################################################################

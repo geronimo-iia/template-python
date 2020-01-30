@@ -4,6 +4,9 @@ REPOSITORY := {{cookiecutter.github_username}}/{{cookiecutter.github_repo}}
 PACKAGES := $(PACKAGE) tests
 MODULES := $(wildcard $(PACKAGE)/*.py)
 
+# uncomment if you wanna disable test coverage
+# DISABLE_COVERAGE
+
 # MAIN TASKS ##################################################################
 
 .PHONY: all
@@ -16,7 +19,7 @@ ci: check test ## Run all tasks that determine CI status
 
 .PHONY: doctor
 doctor:  ## Confirm system dependencies are available
-	bin/verchew
+	tools/verchew
 
 .PHONY: debug-info
 debug-info:  ## Show poetry debug info
@@ -75,7 +78,7 @@ test: install ## Run unit tests
 	poetry run coveragespace $(REPOSITORY) overall
 	{% endif %}
 ifndef DISABLE_COVERAGE
-	bin/open htmlcov/index.html
+	@echo  "coverage report is located at htmlcov/index.html"
 endif
 
 
@@ -98,7 +101,7 @@ publish: build ## Publishes the package, previously built with the build command
 	PROJECT_RELEASE := $$(sed -n -E "s/__version__ = '(.+)'/\1/p" {{cookiecutter.package_name}}/__version__.py)
 	@git tag "v$(PROJECT_RELEASE)"
 	@git push origin "v$(PROJECT_RELEASE)"
-	@bin/open https://pypi.org/project/{{cookiecutter.project_name}}
+	@tools/open https://pypi.org/project/{{cookiecutter.project_name}}
 
 
 # DOC #########################################################################
