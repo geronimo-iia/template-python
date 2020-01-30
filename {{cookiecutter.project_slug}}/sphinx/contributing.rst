@@ -1,3 +1,3 @@
-.. _code_of_conduct:
+.. _contributing:
 
 .. mdinclude:: ../CONTRIBUTING.md

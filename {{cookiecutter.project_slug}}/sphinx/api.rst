@@ -3,7 +3,7 @@
 API Reference
 =============
 
-My Project
+{{cookiecutter.project_name}}
 ----------
 .. automodule:: {{cookiecutter.package_name}}
    :members:
