@@ -12,7 +12,9 @@
 #
 import os
 import sys
+
 import toml
+
 
 sys.path.append(os.path.dirname(__file__))
 sys.path.append(os.path.join(os.path.dirname(__name__), "..", "{{cookiecutter.package_name}}"))
@@ -68,7 +70,6 @@ napoleon_use_rtype = True
 autodoc_default_options = {'autosummary': True}
 
 autodata_content = 'both'
-
 
 source_suffix = ['.rst', '.md']
 
