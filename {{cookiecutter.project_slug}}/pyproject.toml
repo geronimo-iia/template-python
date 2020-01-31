@@ -79,6 +79,7 @@ not_skip = "__init__.py"
 multi_line_output = 3
 known_standard_library = "dataclasses,typing_extensions"
 known_first_party = "{{cookiecutter.package_name}}"
+known_third_party = ["pkg_resources", "toml"]
 combine_as_imports = true
 force_grid_wrap = false
 include_trailing_comma = true
