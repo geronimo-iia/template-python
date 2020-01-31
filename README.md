@@ -64,7 +64,7 @@ Target list:
 
 ## Story
 
-Initially, I have forcked [Jace's Python Template](https://github.com/jacebrowning/template-python) in order to:
+Initially, I had forked [Jace's Python Template](https://github.com/jacebrowning/template-python) in order to:
 - add autodocumentation, because mkdoc did not give us this feature
 - make improvement about makefile target, etc...
 - target on python framework
@@ -105,4 +105,4 @@ Things in mind:
 - obtain a KISS template
 - removing Scrutinizer and Coveralls
 - take an alternative of mypi
-- introduce tox (so usefull for testing agains multiple environement)
+- introduce tox (so usefull for testing against multiple environement)
