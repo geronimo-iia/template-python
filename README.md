@@ -6,7 +6,7 @@ It utilizes popular libraries to fully automate all development and deployment t
 
 About this project:
 * It's a fork from [Jace's Python Template](https://github.com/jacebrowning/template-python).
-* Sphink configuration came from [](https://medium.com/georgian-impact-blog/python-tooling-makes-a-project-tick-181d567eea44)
+* Sphink configuration came from [georgian-impact-blog/](https://medium.com/georgian-impact-blog/python-tooling-makes-a-project-tick-181d567eea44)
 * It's a [pep-0518](https://www.python.org/dev/peps/pep-0518/) starter kit, after a lot of reading about Python...
 
 
