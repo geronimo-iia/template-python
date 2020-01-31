@@ -1,3 +1,7 @@
+# 2.0.1
+
+- fix publish target to obtain current project version
+
 # 2.0.0
 
 - rely on poetry v1.0.2
