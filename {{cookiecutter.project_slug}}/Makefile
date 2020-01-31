@@ -5,7 +5,7 @@ PACKAGES := $(PACKAGE) tests
 MODULES := $(wildcard $(PACKAGE)/*.py)
 
 # uncomment if you wanna disable test coverage
-# DISABLE_COVERAGE
+# DISABLE_COVERAGE := True
 
 # MAIN TASKS ##################################################################
 
@@ -27,11 +27,13 @@ debug-info:  ## Show poetry debug info
 
 # PROJECT DEPENDENCIES ########################################################
 
-install: .install .cache | $(directory) ## Install project dependencies
+install: .install .cache ## Install project dependencies
 
+GIT_DIR = .git
 .install: poetry.lock
 	poetry install
 	poetry check
+	@test -d $(GIT_DIR) && poetry run pre-commit install -f --install-hooks
 	@touch $@
 
 poetry.lock: pyproject.toml
@@ -39,11 +41,6 @@ poetry.lock: pyproject.toml
 
 .cache:
 	@mkdir -p .cache
-
-# Install pre-commit only if we are in a git repository
-directory = $(wildcard ./.git)
-$(directory):
-	poetry run pre-commit install -f --install-hooks
 
 requirements.txt: poetry.lock ## Generate requirements.txt
 	poetry export --without-hashes -f requirements.txt > requirements.txt

@@ -4,7 +4,10 @@ API Reference
 =============
 
 {{cookiecutter.project_name}}
-----------
+-----------------------------
+
 .. automodule:: {{cookiecutter.package_name}}
-   :members:
-   :undoc-members:
+    :autosummary:
+    :members:
+    :undoc-members:
+    :show-inheritance:

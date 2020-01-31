@@ -65,6 +65,7 @@ xdoctest = "^0.11.0" # A rewrite of the builtin doctest module
 sphinx = "^2.3.1"
 sphinx_rtd_theme = "^0.4.3"
 m2r = "^0.2.1"  # M2R converts a markdown file including reStructuredText (rst)
+autodocsumm = "*"
 
 [tool.black]
 # see https://black.readthedocs.io/en/stable/
