@@ -1,3 +1,32 @@
+# 2.0.0
+
+- rely on poetry v1.0.2
+  
+- remove unused tooling dependencies
+- remove python 2 support
+- remove graphviz for uml generated diagram
+  
+- group all file configuration per project into setup.cfg until they support pyproject.toml
+- isort configuration rely on pyproject.toml
+- add extra flake8 plugin
+- fix cookiecutter test and disable coveragespace per default
+- add precommit hook on install target
+- tag git reposioty when publishing
+- add more check on 'doctor' testing target
+- rewrite makefile in a more simple way
+- add requirements.txt export
+
+- use sphinx for documentation
+- all markdown doc are on root folder
+
+- add .cookiecutter.yaml to save context of template generation
+- change fake boolean configuration for int 1/0 ...
+- add "year" configuration property
+
+- switch to travis-ci.com
+
+- change bin folder to tools
+  
 # 1.0.3
 
 - add paramater use_coveragespace to use or not coveragespace
@@ -28,5 +57,3 @@
   - add max_code_line_length parameter
   - remove python2 support
 - extends ci with generation of docs
-
-
