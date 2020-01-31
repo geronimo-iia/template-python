@@ -27,9 +27,9 @@ About this project:
 * Docstring styling with `pydocstyle`
 * Running tests with `pytest`
 * Documentation:
-      - Building documentation with `sphinx`
-      - Auto generation of API reference
-      - Expose with Github Page project under 'docs' folder
+  * Building documentation with `sphinx`
+  * Auto generation of API reference
+  * Expose with Github Page project under 'docs' folder
 * Upgrade project template `update-from-template`
 
 
