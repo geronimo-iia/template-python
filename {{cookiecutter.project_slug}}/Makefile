@@ -71,7 +71,7 @@ test: install ## Run unit tests
 	@if test -e $(FAILURES); then poetry run pytest tests --last-failed --exitfirst; fi
 	@rm -rf $(FAILURES)
 	poetry run pytest tests $(PYTEST_OPTIONS)
-	{%- if cookiecutter.use_coveragespace|int -%}
+	{% if cookiecutter.use_coveragespace|int %}
 	poetry run coveragespace $(REPOSITORY) overall
 	{% endif %}
 ifndef DISABLE_COVERAGE
@@ -106,10 +106,11 @@ publish: build ## Publishes the package, previously built with the build command
 SPHINX_BUILD_DIR = .cache/sphinx
 .PHONY: docs
 docs:  ## Build and publish sit documentation.
+	@rm -rf docs/
 	@mkdir -p $(SPHINX_BUILD_DIR)
 	@poetry run sphinx-build -M html "sphinx" "$(SPHINX_BUILD_DIR)"
-	@rm -rf docs/
 	@mv $(SPHINX_BUILD_DIR)/html docs/
+	@touch docs/.nojekill
 
 
 # CLEANUP #####################################################################
