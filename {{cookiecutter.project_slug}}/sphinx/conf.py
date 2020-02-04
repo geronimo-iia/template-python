@@ -16,8 +16,9 @@ import sys
 import toml
 
 
-sys.path.append(os.path.dirname(__file__))
-sys.path.append(os.path.join(os.path.dirname(__name__), "..", "{{cookiecutter.package_name}}"))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__name__), "..",)))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__name__), "..", "{{cookiecutter.package_name}}")))
 
 
 # -- Project information -----------------------------------------------------
@@ -49,9 +50,13 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
     "sphinx.ext.ifconfig",
+    "sphinx.ext.autosummary",
     "m2r",
     "autodocsumm",
 ]
+
+autoclass_content = "both"  # include both class docstring and __init__
+autosummary_generate = True
 
 # Napoleon settings
 napoleon_google_docstring = True
@@ -69,7 +74,8 @@ napoleon_use_rtype = True
 # autodocsumm settings
 autodoc_default_options = {'autosummary': True}
 
-autodata_content = 'both'
+# Autodoc Settings
+autodoc_default_options = {"member-order": "bysource", "undoc-members": True, "members": True, "show-inheritance": True}
 
 source_suffix = ['.rst', '.md']
 

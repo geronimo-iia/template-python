@@ -3,6 +3,9 @@
 API Reference
 =============
 
+.. contents::
+
+
 {{cookiecutter.project_name}}
 -----------------------------
 
