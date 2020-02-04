@@ -1,3 +1,10 @@
+# 2.0.2
+
+- fix coverage and coveragespace configuration
+- fix isort [configuration](https://github.com/psf/black/issues/333) with iblack
+- fix .nojekill missing issue after updating doc
+- clear docs folder before building
+
 # 2.0.1
 
 - fix publish target to obtain current project version
