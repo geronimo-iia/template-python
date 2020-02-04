@@ -57,9 +57,9 @@ pytest-describe = "*"
 pytest-expecter = "*"
 pytest-random = "*"
 pytest-mock = "^1.10"
-coverage = "^5.0.3" # Code coverage measurement for Python
+coverage = {version = "^5.0.3", extras = ["toml"]} # Code coverage measurement for Python
 xdoctest = "^0.11.0" # A rewrite of the builtin doctest module
-{%- if cookiecutter.use_coveragespace|int -%}coveragespace = "^3.0.1" # A place to track your code coverage metrics.{% endif %}
+{% if cookiecutter.use_coveragespace|int %}coveragespace = "^3.0.1" # A place to track your code coverage metrics.{% endif %}
 
 # Documentation
 sphinx = "^2.3.1"
@@ -69,7 +69,7 @@ autodocsumm = "*"
 
 [tool.black]
 # see https://black.readthedocs.io/en/stable/
-target-version = ["py37"]
+target-version = ["py{{cookiecutter.python_major_version}}{{cookiecutter.python_minor_version}}"]
 skip-string-normalization = true
 line_length = {{cookiecutter.max_code_line_length}}
 
@@ -81,10 +81,23 @@ known_standard_library = "dataclasses,typing_extensions"
 known_first_party = "{{cookiecutter.package_name}}"
 known_third_party = ["pkg_resources", "toml"]
 combine_as_imports = true
-force_grid_wrap = false
 include_trailing_comma = true
-lines_after_imports = 2
 line_length = {{cookiecutter.max_code_line_length}}
+use_parentheses = true
+
+[tool.coverage.run]
+# see https://coverage.readthedocs.io/en/coverage-5.0.3/config.html
+branch = true
+data_file = ".cache/coverage"
+source = ["{{cookiecutter.package_name}}"]
+omit = ["tests/*", ".venv/*", "*/__main__.py"]
+
+[tool.coverage.report]
+# see https://coverage.readthedocs.io/en/coverage-5.0.3/config.html
+exclude_lines =[
+    "pragma: no cover",
+    "raise NotImplementedError"]
+
 
 [build-system]
 requires = ["poetry>=1.0.0"]
