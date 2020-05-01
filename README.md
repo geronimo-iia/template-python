@@ -46,21 +46,21 @@ Cookiecutter will ask you for some basic info (your name, project name, python p
 
 Target list:
 
-| Name | Comment |
-| ---- | ------- |
-|      |         |
-| ci                             | Run all tasks that determine CI status |
-| doctor                         | Confirm system dependencies are available |
-| debug-info                     | Show poetry debug info |
-| install                        | Install project dependencies |
-| check                          | Run linters and static analysis |
-| test                           | Run unit tests |
-| build                          | Builds the source and wheels archives |
-| publish                        | Publishes the package, previously built with the build command, to the remote repository |
-| docs                           | Build and publish sit documentation. |
-| clean                          | Delete all generated and temporary files |
-| update-from-template           | Update project from template |
-|      |         |
+| Name                 | Comment                                                                                  |
+| -------------------- | ---------------------------------------------------------------------------------------- |
+|                      |                                                                                          |
+| ci                   | Run all tasks that determine CI status                                                   |
+| doctor               | Confirm system dependencies are available                                                |
+| debug-info           | Show poetry debug info                                                                   |
+| install              | Install project dependencies                                                             |
+| check                | Run linters and static analysis                                                          |
+| test                 | Run unit tests                                                                           |
+| build                | Builds the source and wheels archives                                                    |
+| publish              | Publishes the package, previously built with the build command, to the remote repository |
+| docs                 | Build and publish sit documentation.                                                     |
+| clean                | Delete all generated and temporary files                                                 |
+| update-from-template | Update project from template                                                             |
+|                      |                                                                                          |
 
 ## Story
 
@@ -92,7 +92,7 @@ poetry.lock: pyproject.toml
 ```
 
 After that, i take a look on mkdoc, and pydoc-markdown.
-Even it's working, I'm not satisfact with my solution, because pydoc-markdown is not totally up-to-date,
+Even it's working, I'm not totally satisfact with my solution, because pydoc-markdown is not totally up-to-date,
 and autodoc need yet a lot of configuration. So not totally 'auto'.
 
 Now, I give a try of the most used documentation framework Sphinx, and try to have the most simple configuration.
@@ -103,6 +103,5 @@ Since 20 years, I continue to learn... and I wish to be able to continue for the
 Things in mind:
 
 - obtain a KISS template
-- removing Scrutinizer and Coveralls
 - take an alternative of mypi
 - introduce tox (so usefull for testing against multiple environement)
