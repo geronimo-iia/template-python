@@ -10,7 +10,7 @@ default_context:
   project_slug: {{ cookiecutter.project_slug }}
   python_major_version: {{ cookiecutter.python_major_version }}
   python_minor_version: {{ cookiecutter.python_minor_version }}
-  use_coveragespace: {{ cookiecutter.use_coveragespace }}
+  use_coverall: {{ cookiecutter.use_coverall }}
   use_scrutinizer: {{ cookiecutter.use_scrutinizer }}
   year: {{cookiecutter.year}}
 _extensions:

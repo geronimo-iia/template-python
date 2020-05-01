@@ -71,9 +71,6 @@ test: install ## Run unit tests
 	@if test -e $(FAILURES); then poetry run pytest tests --last-failed --exitfirst; fi
 	@rm -rf $(FAILURES)
 	poetry run pytest tests $(PYTEST_OPTIONS)
-	{% if cookiecutter.use_coveragespace|int %}
-	poetry run coveragespace $(REPOSITORY) overall
-	{% endif %}
 ifndef DISABLE_COVERAGE
 	@echo  "coverage report is located at htmlcov/index.html"
 endif
@@ -95,7 +92,7 @@ $(DIST_FILES): $(MODULES) pyproject.toml
 publish: build ## Publishes the package, previously built with the build command, to the remote repository
 	@git diff --name-only --exit-code
 	poetry publish
-	PROJECT_RELEASE := $$(python -c "import async_btree; print({{cookiecutter.package_name}}.__version__);")
+	PROJECT_RELEASE := $$(poetry run python -c "import {{cookiecutter.package_name}}; print({{cookiecutter.package_name}}.__version__);")
 	@git tag "v$(PROJECT_RELEASE)"
 	@git push origin "v$(PROJECT_RELEASE)"
 	@tools/open https://pypi.org/project/{{cookiecutter.project_name}}
@@ -107,10 +104,11 @@ SPHINX_BUILD_DIR = .cache/sphinx
 .PHONY: docs
 docs:  ## Build and publish sit documentation.
 	@rm -rf docs/
+	@rm -rf $(SPHINX_BUILD_DIR)/
 	@mkdir -p $(SPHINX_BUILD_DIR)
 	@poetry run sphinx-build -M html "sphinx" "$(SPHINX_BUILD_DIR)"
 	@mv $(SPHINX_BUILD_DIR)/html docs/
-	@touch docs/.nojekill
+	@touch docs/.nojekyll
 
 
 # CLEANUP #####################################################################

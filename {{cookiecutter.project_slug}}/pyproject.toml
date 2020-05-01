@@ -59,7 +59,6 @@ pytest-random = "*"
 pytest-mock = "^1.10"
 coverage = {version = "^5.0.3", extras = ["toml"]} # Code coverage measurement for Python
 xdoctest = "^0.11.0" # A rewrite of the builtin doctest module
-{% if cookiecutter.use_coveragespace|int %}coveragespace = "^3.0.1" # A place to track your code coverage metrics.{% endif %}
 
 # Documentation
 sphinx = "^2.3.1"
@@ -88,7 +87,6 @@ use_parentheses = true
 [tool.coverage.run]
 # see https://coverage.readthedocs.io/en/coverage-5.0.3/config.html
 branch = true
-data_file = ".cache/coverage"
 source = ["{{cookiecutter.package_name}}"]
 omit = ["tests/*", ".venv/*", "*/__main__.py"]
 

@@ -39,7 +39,7 @@ Follow [https://github.com/pyenv/pyenv#installation](https://github.com/pyenv/py
 Note for [MacOS 10.14 user](https://github.com/pyenv/pyenv/issues/544):
 
   ```bash
-    SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk MACOSX_DEPLOYMENT_TARGET=10.14 pyenv install 3.7.3
+    SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk MACOSX_DEPLOYMENT_TARGET=10.14 pyenv install {{cookiecutter.python_major_version}}.{{cookiecutter.python_minor_version}}
   ```
 
 ### Poetry Installation: [https://poetry.eustace.io/docs/#installation](https://poetry.eustace.io/docs/#installation)
