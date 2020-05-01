@@ -33,6 +33,12 @@ $(GENERATED_PROJECT): $(SOURCE_FILES)
 	@mkdir -p $(GENERATED_PROJECT)
 	@touch $(GENERATED_PROJECT)
 
+# GENERATE ######################################################################
+
+.PHONY: generate
+generate: clean install
+	poetry run cookiecutter .
+
 # CLEANUP ######################################################################
 
 .PHONY: clean
