@@ -1,5 +1,9 @@
 # Change log
 
+## 2.0.4
+- fix publish makefile target
+- fix precommit hooks
+- add pragma no cover on version package
 
 ## 2.0.3
  - remove coveragespace dependency

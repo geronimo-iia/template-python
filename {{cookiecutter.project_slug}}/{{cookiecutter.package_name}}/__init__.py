@@ -3,7 +3,7 @@ from pkg_resources import get_distribution, DistributionNotFound
 
 try:
     __version__ = get_distribution('{{cookiecutter.package_name}}').version
-except DistributionNotFound:
+except DistributionNotFound:  # pragma: no cover
     __version__ = '(local)'
 
 
