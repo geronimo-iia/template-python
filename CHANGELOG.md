@@ -1,15 +1,24 @@
-# 2.0.2
+# Change log
+
+
+## 2.0.3 (coming soon)
+ - remove coveragespace dependency
+ - fix coverage data file location
+ - fix publish makefile target
+ - fix nojekyll file name with docs generation
+
+## 2.0.2
 
 - fix coverage and coveragespace configuration
 - fix isort [configuration](https://github.com/psf/black/issues/333) with iblack
 - fix .nojekill missing issue after updating doc
 - clear docs folder before building
 
-# 2.0.1
+## 2.0.1
 
 - fix publish target to obtain current project version
 
-# 2.0.0
+## 2.0.0
 
 - rely on poetry v1.0.2
   
@@ -38,24 +47,24 @@
 
 - change bin folder to tools
   
-# 1.0.3
+## 1.0.3
 
 - add paramater use_coveragespace to use or not coveragespace
 - fix some python version tag generation
 
-# 1.0.2 (2019-11-28)
+## 1.0.2 (2019-11-28)
 
 - change upload target for publish
 - fix travis python version definition
 - change root folder for project slug
 - change default github_repo with project slug
 
-# 1.0.1 (2019-11-19)
+## 1.0.1 (2019-11-19)
 
 - change root folder for project name
 - adding 'requirements.txt' target (waiting poetry 1.0.0)
 
-# 1.0.0 (2019-09-04)
+## 1.0.0 (2019-09-04)
 
 - rewrote template from async-btree experience:
   - use flake8
