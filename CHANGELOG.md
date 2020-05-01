@@ -1,7 +1,7 @@
 # Change log
 
 
-## 2.0.3 (coming soon)
+## 2.0.3
  - remove coveragespace dependency
  - fix coverage data file location
  - fix publish makefile target
