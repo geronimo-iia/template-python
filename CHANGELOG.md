@@ -1,5 +1,8 @@
 # Change log
 
+## 2.0.5
+- fix publish tag management
+
 ## 2.0.4
 - fix publish makefile target
 - fix precommit hooks
