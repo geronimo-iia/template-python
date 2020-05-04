@@ -1,5 +1,8 @@
 # Change log
 
+## 2.0.6
+- fix poetry.lock makefile target
+
 ## 2.0.5
 - fix publish tag management
 
