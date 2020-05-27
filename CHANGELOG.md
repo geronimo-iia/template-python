@@ -1,5 +1,8 @@
 # Change log
 
+## 2.0.7
+- add github source link in sphinx documentation
+
 ## 2.0.6
 - fix poetry.lock makefile target
 
