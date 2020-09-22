@@ -7,5 +7,5 @@ authors = ["Jerome Guibert <jguibert@gmail.com>"]
 
 
 [tool.poetry.dependencies]
-python= "^3"
-cookiecutter = "*"
+python= "^3.8"
+cookiecutter = "1.7.2"
