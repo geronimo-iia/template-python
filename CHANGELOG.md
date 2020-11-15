@@ -1,5 +1,9 @@
 # Change log
 
+## 2.0.8
+- update pytest dependency
+- add pytest-curio dependency
+
 ## 2.0.7
 - add github source link in sphinx documentation
 
