@@ -1,3 +1,9 @@
+# MOVED
+
+See [python-module-template](https://github.com/geronimo-iia/python-module-template)
+
+
+
 # Geronimo-iia's Python Template
 
 > **This project has been replaced with [Python Module Template](https://github.com/geronimo-iia/python-module-template)**
