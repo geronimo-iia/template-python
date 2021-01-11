@@ -1,5 +1,8 @@
 # Geronimo-iia's Python Template
 
+> **This project has been replaced with [Python Module Template](https://github.com/geronimo-iia/python-module-template)**
+
+
 This is a [cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a typical Python library following modern packaging conventions.
 
 It utilizes popular libraries to fully automate all development and deployment tasks.
